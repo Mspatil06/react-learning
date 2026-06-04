@@ -2,104 +2,108 @@ import { useState } from 'react'
 
 import './App.css'
 
-import ProductCard from './components/ProductCard'
+import StudentCard from './components/StudentCard'
 
 function App() {
 
-  const [totalItems, setTotalItems] = useState(0)
+  const [name, setName] = useState('')
 
-  const products = [
+  const [course, setCourse] = useState('')
 
-    {
+  const [students, setStudents] = useState([])
 
-      id: 1,
+  const addStudent = () => {
 
-      name: 'Laptop',
+    if (!name || !course) {
 
-      price: 50000,
+      alert('Please fill all fields')
 
-      category: 'Electronics'
-
-    },
-
-    {
-
-      id: 2,
-
-      name: 'Mobile',
-
-      price: 25000,
-
-      category: 'Electronics'
-
-    },
-
-    {
-
-      id: 3,
-
-      name: 'Headphones',
-
-      price: 3000,
-
-      category: 'Accessories'
-
-    },
-
-    {
-
-      id: 4,
-
-      name: 'Smart Watch',
-
-      price: 5000,
-
-      category: 'Wearables'
-
-    },
-
-    {
-
-      id: 5,
-
-      name: 'Keyboard',
-
-      price: 1500,
-
-      category: 'Accessories'
+      return
 
     }
 
-  ]
+    const newStudent = {
 
-  const handleBuy = () => {
+      id: Date.now(),
 
-    setTotalItems(totalItems + 1)
+      name,
+
+      course
+
+    }
+
+    setStudents([...students, newStudent])
+
+    setName('')
+
+    setCourse('')
+
+  }
+
+  const deleteStudent = id => {
+
+    const updatedStudents = students.filter(
+
+      student => student.id !== id
+
+    )
+
+    setStudents(updatedStudents)
 
   }
 
   return (
 <div className="container">
-<h1>React Product Store</h1>
-<h2>Cart Items: {totalItems}</h2>
-<div className="product-container">
+<h1>Student Management System</h1>
+<div className="form">
+<input
 
-        {products.map(product => (
-<ProductCard
+          type="text"
 
-            key={product.id}
+          placeholder="Enter Student Name"
 
-            name={product.name}
+          value={name}
 
-            price={product.price}
+          onChange={e => setName(e.target.value)}
 
-            category={product.category}
+        />
+<input
 
-            onBuy={handleBuy}
+          type="text"
 
-          />
+          placeholder="Enter Course"
 
-        ))}
+          value={course}
+
+          onChange={e => setCourse(e.target.value)}
+
+        />
+<button onClick={addStudent}>
+
+          Add Student
+</button>
+</div>
+<div className="student-list">
+
+        {students.length === 0 ? (
+<h2>No Students Added</h2>
+
+        ) : (
+
+          students.map(student => (
+<StudentCard
+
+              key={student.id}
+
+              student={student}
+
+              deleteStudent={deleteStudent}
+
+            />
+
+          ))
+
+        )}
 </div>
 </div>
 
@@ -108,4 +112,5 @@ function App() {
 }
 
 export default App
+
  
