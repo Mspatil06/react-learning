@@ -1,110 +1,82 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import UserCard from './components/UserCard'
 
 import './App.css'
 
-import StudentCard from './components/StudentCard'
-
 function App() {
 
-  const [name, setName] = useState('')
+  const [users, setUsers] = useState([])
 
-  const [course, setCourse] = useState('')
+  const [loading, setLoading] = useState(true)
 
-  const [students, setStudents] = useState([])
+  const [search, setSearch] = useState('')
 
-  const addStudent = () => {
+  useEffect(() => {
 
-    if (!name || !course) {
+    fetch('https://jsonplaceholder.typicode.com/users')
 
-      alert('Please fill all fields')
+      .then(response => response.json())
 
-      return
+      .then(data => {
+        
+        setUsers(data)
 
-    }
+        setLoading(false)
 
-    const newStudent = {
+      })
 
-      id: Date.now(),
+      .catch(error => {
+ 
+        console.log(error) 
 
-      name,
+        setLoading(false)
 
-      course
+      })
 
-    }
+  }, [])
 
-    setStudents([...students, newStudent])
+  const filteredUsers = users.filter(user =>
 
-    setName('')
+    user.name.toLowerCase().includes(search.toLowerCase())
 
-    setCourse('')
-
-  }
-
-  const deleteStudent = id => {
-
-    const updatedStudents = students.filter(
-
-      student => student.id !== id
-
-    )
-
-    setStudents(updatedStudents)
-
-  }
+  )
 
   return (
 <div className="container">
-<h1>Student Management System</h1>
-<div className="form">
+<h1>User Management Dashboard</h1>
 <input
 
-          type="text"
+        type="text"
 
-          placeholder="Enter Student Name"
+        placeholder="Search User..."
 
-          value={name}
+        value={search}
 
-          onChange={e => setName(e.target.value)}
+        onChange={e => setSearch(e.target.value)}
 
-        />
-<input
+      />
+<h3>Total Users: {filteredUsers.length}</h3>
 
-          type="text"
+      {loading ? (
+<h2>Loading Users...</h2>
 
-          placeholder="Enter Course"
+      ) : (
+<div className="user-container">
 
-          value={course}
+          {filteredUsers.map(user => (
+<UserCard
 
-          onChange={e => setCourse(e.target.value)}
+              key={user.id}
 
-        />
-<button onClick={addStudent}>
-
-          Add Student
-</button>
-</div>
-<div className="student-list">
-
-        {students.length === 0 ? (
-<h2>No Students Added</h2>
-
-        ) : (
-
-          students.map(student => (
-<StudentCard
-
-              key={student.id}
-
-              student={student}
-
-              deleteStudent={deleteStudent}
+              user={user}
 
             />
 
-          ))
-
-        )}
+          ))}
 </div>
+
+      )}
 </div>
 
   )
@@ -112,5 +84,4 @@ function App() {
 }
 
 export default App
-
  
