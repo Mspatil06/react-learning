@@ -1,31 +1,18 @@
-import { Routes, Route } from 'react-router-dom'
+import StudentForm from './components/StudentForm'
 
-import Navbar from './components/Navbar'
-
-import Home from './pages/Home'
-
-import About from './pages/About'
-
-import Students from './pages/Students'
-
-import Contact from './pages/Contact'
+import './App.css'
 
 function App() {
 
   return (
-<>
-<Navbar />
-<Routes>
-<Route path="/" element={<Home />} />
-<Route path="/about" element={<About />} />
-<Route path="/students" element={<Students />} />
-<Route path="/contact" element={<Contact />} />
-</Routes>
-</>
+<div>
+<StudentForm />
+</div>
 
   )
 
 }
 
 export default App
+ 
  

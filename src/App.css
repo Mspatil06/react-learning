@@ -1,27 +1,22 @@
-body {
- margin: 0;
- font-family: Arial, sans-serif;
+.container {
+ width: 400px;
+ margin: 50px auto;
+ padding: 20px;
+ border: 1px solid #ddd;
+ border-radius: 10px;  
 }
-.navbar {
- background: #242424;
- color: white;
- padding: 15px 30px;
+form {
  display: flex;
- justify-content: space-between;
- align-items: center; 
-} 
-.links {
- display: flex;
- gap: 20px;
+ flex-direction: column;
+ gap: 12px;
 }
-.links a {
- color: white; 
- text-decoration: none; 
+input {
+ padding: 10px;
 }
-.links a:hover {
- color: orange;
+button {
+ padding: 10px;  
+ cursor: pointer; 
 }
-.page {
- text-align: center;
- padding: 40px;
+.result {
+ margin-top: 20px;
 }
