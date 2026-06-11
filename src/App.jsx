@@ -1,18 +1,13 @@
-import StudentForm from './components/StudentForm'
-
-import './App.css'
-
+import Navbar from './components/Navbar'
+import ProfileCard from './components/ProfileCard'
+import Dashboard from './components/Dashboard'
 function App() {
-
-  return (
-<div>
-<StudentForm />
-</div>
-
-  )
-
+ return (
+<>
+<Navbar />
+<ProfileCard />
+<Dashboard />
+</>
+ )
 }
-
 export default App
- 
- 

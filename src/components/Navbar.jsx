@@ -1,17 +1,23 @@
-import { Link } from 'react-router-dom'
-function Navbar() {
- return (
+import { useContext } from 'react'
 
-<nav className="navbar">
-<h2>Student Portal</h2>
-<div className="links">
-<Link to="/">Home</Link>
-<Link to="/about">About</Link>
-<Link to="/students">Students</Link>
-<Link to="/contact">Contact</Link>
-</div>
+import { UserContext } from '../context/UserContext'
+
+function Navbar() {
+
+  const { theme, toggleTheme } = useContext(UserContext)
+
+  return (
+<nav className={`navbar ${theme}`}>
+<h2>User Dashboard</h2>
+<button onClick={toggleTheme}>
+
+        Switch Theme
+</button>
 </nav>
 
- )
+  )
+
 }
-export default Navbar 
+
+export default Navbar
+ 
