@@ -5,12 +5,9 @@ function Dashboard() {
  return (
 <div className={`dashboard ${theme}`}>
 <h1>Welcome {user.name}</h1>
-<p>
-       You are logged in as {user.role}
-</p>
-<p>
-       Theme Mode: {theme}
-</p>
+<p>Current Role: {user.role}</p>
+<p>Organization: {user.company}</p>
+<p>Theme: {theme}</p>
 </div>
  )
 }
