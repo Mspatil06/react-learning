@@ -1,16 +1,15 @@
-import Navbar from './components/Navbar'
-import ProfileCard from './components/ProfileCard'
-import Dashboard from './components/Dashboard'
-import StatsCard from './components/StatsCard'
+import TaskForm from './components/TaskForm'
+import TaskList from './components/TaskList'
+import TaskStats from './components/TaskStats'
 import './App.css'
 function App() {
  return (
-<>
-<Navbar />
-<ProfileCard />
-<Dashboard />
-<StatsCard />
-</>
+<div className="container">
+<h1>Redux Task Manager</h1>
+<TaskForm />
+<TaskStats />
+<TaskList />
+</div>
  )
 }
 export default App
