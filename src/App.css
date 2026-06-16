@@ -1,29 +1,27 @@
 body {
+ margin: 0;
  font-family: Arial, sans-serif;
- background: #f4f4f4;
+}
+.navbar {
+ background: #222;
+ padding: 15px;
+ display: flex;
+ gap: 20px;
+}
+.navbar a {
+ color: white;
+ text-decoration: none;
 }
 .container {
- width: 800px;
- margin: auto;
  padding: 20px;
 }
-form {
- display: flex;
- gap: 10px;
-}
-input {
- flex: 1;
- padding: 10px;
-}
-button {
- padding: 10px;
-} 
-.task-card {
- background: white; 
- padding: 15px; 
- margin-top: 15px;
+.card {
+ border: 1px solid #ddd;
+ padding: 15px;
+ margin: 15px 0;
  border-radius: 10px;
 }
-.stats {
- margin: 20px 0;     
+button {
+ padding: 10px 15px;
+ cursor: pointer;
 }

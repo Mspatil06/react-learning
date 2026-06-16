@@ -1,9 +1,17 @@
 function Home() {
- return (
-<div className="page">
-<h1>Home Page</h1>
-<p>Welcome to the Student Portal.</p>
+
+  return (
+<div className="container">
+<h1>Student Dashboard</h1>
+<p>
+
+        Welcome to React Router Project
+</p>
 </div>
- )
+
+  )
+
 }
+
 export default Home
+ 
