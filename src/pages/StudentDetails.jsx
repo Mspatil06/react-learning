@@ -3,11 +3,11 @@ function StudentDetails() {
  const { id } = useParams()
  const navigate = useNavigate()
  return ( 
-<div className="container">
+<div className="container"> 
 <h1>Student Details</h1>   
-<h2>Student ID: {id}</h2>
+<h2>Student ID: {id}</h2> 
 <button
-       onClick={() =>
+       onClick={() =>   
          navigate('/students')
        }                        
 > 
