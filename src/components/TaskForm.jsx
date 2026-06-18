@@ -16,8 +16,6 @@ function TaskForm() {
        type="text"
        placeholder="Enter Task"
        value={task}
-       onChange={e => setTask(e.target.value)}
-     />
 <button type="submit">
        Add Task
 </button>
@@ -25,3 +23,18 @@ function TaskForm() {
  )
 }
 export default TaskForm
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
