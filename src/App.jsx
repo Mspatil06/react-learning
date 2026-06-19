@@ -1,9 +1,9 @@
-import EmployeeForm from './components/EmployeeForm'
+import EmployeeManager from './components/EmployeeManager'
 import './App.css'
 function App() {
  return (
 <div>
-<EmployeeForm />
+<EmployeeManager />
 </div>
  )
 }
